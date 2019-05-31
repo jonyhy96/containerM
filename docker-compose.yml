@@ -1,0 +1,21 @@
+version: '3.5'
+
+networks:
+    default:
+        external:
+            name: pk
+
+services:
+  pk-hooks:
+    build:
+      context: .
+    container_name: pk-hooks
+    enviroment:
+      - SECRECT:"eyJ1c2VybmFtZSI6ICJhZG1pbiIsICJwYXNzd29yZCI6ICJhZG1pbiJ9"
+      - TOKEN:"VE9LRU4="
+    ports:
+      - 8888:8888
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - default
