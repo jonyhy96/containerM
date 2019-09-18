@@ -1,8 +1,6 @@
 package selfhandler
 
 import (
-	"containerM/client"
-	"containerM/models"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -13,6 +11,9 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/jonyhy96/containerM/client"
+	"github.com/jonyhy96/containerM/models"
 
 	"github.com/docker/docker/api/types"
 	"github.com/docker/docker/api/types/container"

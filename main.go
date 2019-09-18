@@ -1,14 +1,15 @@
 package main
 
 import (
-	"containerM/selfhandler"
-	"containerM/server"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
-	sh "containerM/selfhandler"
+	"github.com/jonyhy96/containerM/selfhandler"
+	"github.com/jonyhy96/containerM/server"
+
+	sh "github.com/jonyhy96/containerM/selfhandler"
 )
 
 func handle(h sh.Handler, r *http.Request, ec chan error) {
