@@ -1,5 +1,8 @@
 # CD project
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/jonyhy96/containerM)](https://goreportcard.com/report/github.com/jonyhy96/containerM)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 containerM helps you to automatically deploy your docker containers into google cloud
 
 ## Getting Started
