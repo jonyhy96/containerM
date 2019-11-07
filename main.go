@@ -26,8 +26,8 @@ func init() {
 	if os.Getenv("TOKEN") == "" {
 		os.Setenv("TOKEN", "VE9LRU4=")
 	}
-	if os.Getenv("SECRECT") == "" {
-		os.Setenv("SECRECT", "eyJ1c2VybmFtZSI6ICJhZG1pbiIsICJwYXNzd29yZCI6ICJhZG1pbiJ9")
+	if os.Getenv("SECRET") == "" {
+		os.Setenv("SECRET", "eyJ1c2VybmFtZSI6ICJhZG1pbiIsICJwYXNzd29yZCI6ICJhZG1pbiJ9")
 	}
 	logger = log.New(os.Stdout, "", log.Ldate|log.Ltime|log.Lshortfile)
 }
