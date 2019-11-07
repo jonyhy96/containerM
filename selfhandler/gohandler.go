@@ -80,13 +80,11 @@ func (g *GoHandler) Handler(r *http.Request, ec chan error) {
 	var image = ps["image"][0]
 	cli := client.GetCli()
 	ctx := context.Background()
-	tempFilter := filters.NewArgs(filters.KeyValuePair{
-		Key:   "ancestor",
-		Value: image,
-	})
+	args := filters.NewArgs()
+	args.Add("ancestor", image)
 	skContainer, err := cli.ContainerList(ctx, types.ContainerListOptions{
 		All:     true,
-		Filters: tempFilter})
+		Filters: args})
 	if err != nil {
 		g.logger.Printf("err:%+v\n", err)
 		ec <- err
@@ -197,11 +195,9 @@ func (g *GoHandler) pullNewImage(ctx context.Context, cli *dc.Client, image stri
 }
 
 func (g *GoHandler) getSkNetwork(ctx context.Context, cli *dc.Client) (net *types.NetworkResource, e error) {
-	skNetFilter := filters.NewArgs(filters.KeyValuePair{
-		Key:   "name",
-		Value: "pk",
-	})
-	nets, err := cli.NetworkList(ctx, types.NetworkListOptions{Filters: skNetFilter})
+	args := filters.NewArgs()
+	args.Add("name", "pk")
+	nets, err := cli.NetworkList(ctx, types.NetworkListOptions{Filters: args})
 	if err != nil {
 		g.logger.Printf("err:%+v\n", err)
 		return nil, err
@@ -247,12 +243,10 @@ func (g *GoHandler) deleteNoneImage(ctx context.Context, cli *dc.Client, image s
 			g.logger.Println("Recovered err:", r)
 		}
 	}()
-	imFilter := filters.NewArgs(filters.KeyValuePair{
-		Key:   "dangling",
-		Value: "true",
-	})
+	args := filters.NewArgs()
+	args.Add("dangling", "true")
 	ims, err := cli.ImageList(ctx, types.ImageListOptions{
-		Filters: imFilter,
+		Filters: args,
 	})
 	if err != nil {
 		g.logger.Printf("err:%+v\n", err)

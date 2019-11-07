@@ -1,5 +1,6 @@
 FROM golang:1.11 as builder
 
+ENV GOPROXY=https://goproxy.cn
 ENV GO111MODULE=on
 
 WORKDIR /app

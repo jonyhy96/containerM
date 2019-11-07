@@ -11,7 +11,7 @@ var client *dc.Client
 // GetCli get cli
 func GetCli() *dc.Client {
 	if client == nil {
-		cli, err := dc.NewClientWithOpts(dc.FromEnv)
+		cli, err := dc.NewEnvClient()
 		if err != nil {
 			log.Printf("GetCli err:%+v\n", err)
 			return nil
