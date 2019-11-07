@@ -183,7 +183,7 @@ func (g *GoHandler) deleteOldContainer(ctx context.Context, cli *dc.Client, cs t
 
 func (g *GoHandler) pullNewImage(ctx context.Context, cli *dc.Client, image string) error {
 	rc, err := cli.ImagePull(ctx, image, types.ImagePullOptions{
-		RegistryAuth: os.Getenv("SECRECT"),
+		RegistryAuth: os.Getenv("SECRET"),
 	})
 	if err != nil {
 		g.logger.Printf("err:%+v\n", err)
